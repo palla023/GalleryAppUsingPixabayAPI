@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
-import { useHistory } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 {/* 
 Note: The useHistory() hook has been deprecated in the latest version of React Router.
  If you're using React Router V6, you'll want to use the useNavigate() hook instead. */}
 
 const Home = () => {
-	let history = useHistory();
+	let navigate = useNavigate();
 	const [imgname, setImgname] = useState("");
 	return (
 		<div className='bgimage'>
@@ -24,7 +24,7 @@ const Home = () => {
 				{/* Check if any data is there or not in text box stored variable
 				   whenever you have to send data in urls , you hava to use BackTicks*/}
 				<button className='butn' 
-				onClick={()=>imgname && history.push(`/search/${imgname}`)}
+				onClick={()=>imgname && navigate(`/search/${imgname}`)}
 				>Search</button>
 			</div>
 		</div>
