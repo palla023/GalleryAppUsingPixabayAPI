@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
 import axios from 'axios'
-const Search = ({ match }) => {
+const Search = () => {
 	const [data, setData] = useState([]);
+  let params  =  useParams()
 	useEffect(() => {
-		axios.get(`https://pixabay.com/api/?key=29964886-33d3e0c0aa4e32894d6d8403b&q=${match.params.imgname}&image_type=photo`).then(
+		axios.get(`https://pixabay.com/api/?key=29964886-33d3e0c0aa4e32894d6d8403b&q=${params.imgname}&image_type=photo`).then(
 			res => { setData(res.data.hits) }
 		)
 	}, [])
